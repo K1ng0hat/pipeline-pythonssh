@@ -1,13 +1,22 @@
-from ssh_client import connect, run_command
+from ssh_client import connect
+from tasks.healthcheck import check_user, check_uptime, check_disk
 
 def main():
     client = connect()
 
     try:
-        output = run_command(client, "uptime")
-        print(output)
+        print("=== HEALTHCHECK ===")
+
+        print("User:", check_user(client).strip())
+        print("Uptime:", check_uptime(client).strip())
+        print("Disk:")
+        print(check_disk(client))
+
+        print("Healthcheck finalizado correctamente")
+
     except Exception as e:
-        print(f"Error en la pipeline: {e}")
+        print(f"Pipeline falló: {e}")
+
     finally:
         client.close()
 
