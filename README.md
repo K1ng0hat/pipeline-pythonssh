@@ -18,3 +18,7 @@ The pipeline is modular, maintainable, and aligned with real-world DevOps and CI
 - Proper error handling using exit codes
 
 - Ready to be extended into CI/CD environments
+
+<br> 
+
+implementacion d eun servidor debian con paramiko, ssh_user con el user correspondiente y tambien utilizar el id_rsa correspondiente a la key asignada de el main.py file
